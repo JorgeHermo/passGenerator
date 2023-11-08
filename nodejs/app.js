@@ -1,9 +1,12 @@
 require('dotenv').config();
+const express = require('express');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const { GoogleAuth } = require('google-auth-library');
 const { DemoEventTicket } = require('./demo-eventticket');
+const app = express();
 
+app.use(express.json());
 // Load the service account credentials from a file (ensure this path is correct)
 const credentials = require(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
@@ -21,7 +24,7 @@ function generateJwt(objectId) {
         iss: credentials.client_email,
         aud: 'https://walletobjects.googleapis.com/google/payments/inapp/item/v1/save',
         typ: 'savetowallet',
-        origins: ['http://localhost:3000'], // This line is added
+        origins: ['http://localhost:3000'],
         payload: {
             eventTicketObjects: [
                 {
@@ -30,7 +33,6 @@ function generateJwt(objectId) {
             ]
         }
     };
-    console.log("ISS HERE", claims.iss)
     // Sign the JWT with the service account's private key
     return jwt.sign(claims, credentials.private_key, { algorithm: 'RS256' });
 }
@@ -52,31 +54,9 @@ const objectId = `${issuerId}.${classSuffix}.${objectSuffix}`;
 
 // Define the details for the pass object.
 // Include all required fields according to your pass class structure.
-let objectDetails = {
-    id: objectId,
-    classId: `${issuerId}.${classSuffix}`,
-    state: 'ACTIVE',
-    barcode: {
-        type: "qrCode",
-        value: "1234567890",
-        alternateText: "1234567890"
-    },
-    eventName: {
-        defaultValue: {
-            language: "en",
-            value: "Fiesta"
-        }
-    },
-    seatInfo: {
-        defaultValue: {
-            language: "en",
-            value: "Seat 42"
-        }
-    },
-    // ... Other fields based on your pass class definition
-};
 
 function sendSaveToWalletEmail(to, saveToWalletUrl) {
+    console.log('Sending email to:', to);
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -100,13 +80,29 @@ function sendSaveToWalletEmail(to, saveToWalletUrl) {
     });
 }
 
-// Call the method to create the pass object
-demo.createObject(issuerId, classSuffix, objectSuffix)
-    .then((response) => {
-        const jwtToken = generateJwt(objectId);
-        const saveToWalletUrl = createSaveToWalletUrl(jwtToken);
-        sendSaveToWalletEmail('jhermotorrado@gmail.com', saveToWalletUrl);
-    })
-    .catch((error) => {
-        console.error('Error creating pass object:', error);
-    });
+// Endpoint to receive a POST request with the email in the body
+app.post('/send-pass', (req, res) => {
+    const userEmail = req.body.email; // The email is sent in the request body
+    console.log('Received email:', userEmail);
+    // Your existing logic to create the pass object and send the email
+    demo.createObject(issuerId, classSuffix, objectSuffix)
+        .then((response) => {
+                        const jwtToken = generateJwt(objectId);
+            console.log("Generated JWT:", jwtToken);
+            const saveToWalletUrl = createSaveToWalletUrl(jwtToken);
+            sendSaveToWalletEmail(userEmail, saveToWalletUrl);
+        })
+        .then(() => {
+            res.status(200).send('Pass sent to email successfully.');
+        })
+        .catch((error) => {
+            console.error('Error creating or sending pass object:', error);
+            res.status(500).send('Error sending pass to email.');
+        });
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
