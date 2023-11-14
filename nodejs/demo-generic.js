@@ -268,12 +268,12 @@ class DemoGeneric {
       'state': 'ACTIVE',
       'heroImage': {
         'sourceUri': {
-          'uri': 'https://farm4.staticflickr.com/3723/11177041115_6e6a3b6f49_o.jpg'
+          'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/avatar-150x150.png'
         },
         'contentDescription': {
           'defaultValue': {
             'language': 'en-US',
-            'value': 'Hero image description'
+            'value': 'SCG Banner'
           }
         }
       },
@@ -302,7 +302,7 @@ class DemoGeneric {
         {
           'mainImage': {
             'sourceUri': {
-              'uri': 'http://farm4.staticflickr.com/3738/12440799783_3dc3c20606_b.jpg'
+              'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/logo-secuoya-group-nuevo.png'
             },
             'contentDescription': {
               'defaultValue': {
@@ -353,7 +353,7 @@ class DemoGeneric {
     console.log('Object insert response');
     console.log(response);
 
-    return `${issuerId}.${objectSuffix}`;
+    return response.data;
   }
   // [END createObject]
 
@@ -560,12 +560,12 @@ class DemoGeneric {
       'state': 'ACTIVE',
       'heroImage': {
         'sourceUri': {
-          'uri': 'https://farm4.staticflickr.com/3723/11177041115_6e6a3b6f49_o.jpg'
+          'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/avatar-150x150.png'
         },
         'contentDescription': {
           'defaultValue': {
             'language': 'en-US',
-            'value': 'Hero image description'
+            'value': 'SCG Banner'
           }
         }
       },
@@ -594,7 +594,7 @@ class DemoGeneric {
         {
           'mainImage': {
             'sourceUri': {
-              'uri': 'http://farm4.staticflickr.com/3738/12440799783_3dc3c20606_b.jpg'
+              'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/logo-secuoya-group-nuevo.png'
             },
             'contentDescription': {
               'defaultValue': {
