@@ -266,83 +266,55 @@ class DemoGeneric {
       'id': `${issuerId}.${objectSuffix}`,
       'classId': `${issuerId}.${classSuffix}`,
       'state': 'ACTIVE',
-      'heroImage': {
+      'logo': {
         'sourceUri': {
           'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/avatar-150x150.png'
         },
         'contentDescription': {
           'defaultValue': {
             'language': 'en-US',
-            'value': 'SCG Banner'
+            'value': 'LOGO_IMAGE_DESCRIPTION'
           }
         }
-      },
-      'textModulesData': [
-        {
-          'header': 'Text module header',
-          'body': 'Text module body',
-          'id': 'TEXT_MODULE_ID'
-        }
-      ],
-      'linksModuleData': {
-        'uris': [
-          {
-            'uri': 'http://maps.google.com/',
-            'description': 'Link module URI description',
-            'id': 'LINK_MODULE_URI_ID'
-          },
-          {
-            'uri': 'tel:6505555555',
-            'description': 'Link module tel description',
-            'id': 'LINK_MODULE_TEL_ID'
-          }
-        ]
-      },
-      'imageModulesData': [
-        {
-          'mainImage': {
-            'sourceUri': {
-              'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/logo-secuoya-group-nuevo.png'
-            },
-            'contentDescription': {
-              'defaultValue': {
-                'language': 'en-US',
-                'value': 'Image module description'
-              }
-            }
-          },
-          'id': 'IMAGE_MODULE_ID'
-        }
-      ],
-      'barcode': {
-        'type': 'QR_CODE',
-        'value': 'QR code'
       },
       'cardTitle': {
         'defaultValue': {
           'language': 'en-US',
-          'value': 'Generic card title'
+          'value': 'Secuoya Content Group'
+        }
+      },
+      'subheader': {
+        'defaultValue': {
+          'language': 'en-US',
+          'value': 'Asistente'
         }
       },
       'header': {
         'defaultValue': {
           'language': 'en-US',
-          'value': 'Generic header'
+          'value': 'Jorge Hermo'
         }
       },
-      'hexBackgroundColor': '#4285f4',
-      'logo': {
+      'barcode': {
+        'type': 'QR_CODE',
+        'value': 'BARCODE_VALUE', // Replace this with the actual barcode value
+        'alternateText': ''
+      },
+      'hexBackgroundColor': '#063d58',
+      'heroImage': {
         'sourceUri': {
-          'uri': 'https://storage.googleapis.com/wallet-lab-tools-codelab-artifacts-public/pass_google_logo.jpg'
+          'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/logo-secuoya-group-nuevo.png'
         },
         'contentDescription': {
           'defaultValue': {
             'language': 'en-US',
-            'value': 'Generic card logo'
+            'value': 'HERO_IMAGE_DESCRIPTION'
           }
         }
-      }
+      },
+      // Include any other necessary properties as per your requirements
     };
+    
 
     response = await this.httpClient.request({
       url: this.objectUrl,
@@ -558,83 +530,55 @@ class DemoGeneric {
       'id': `${issuerId}.${objectSuffix}`,
       'classId': `${issuerId}.${classSuffix}`,
       'state': 'ACTIVE',
-      'heroImage': {
+      'logo': {
         'sourceUri': {
           'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/avatar-150x150.png'
         },
         'contentDescription': {
           'defaultValue': {
             'language': 'en-US',
-            'value': 'SCG Banner'
+            'value': 'LOGO_IMAGE_DESCRIPTION'
           }
         }
-      },
-      'textModulesData': [
-        {
-          'header': 'Text module header',
-          'body': 'Text module body',
-          'id': 'TEXT_MODULE_ID'
-        }
-      ],
-      'linksModuleData': {
-        'uris': [
-          {
-            'uri': 'http://maps.google.com/',
-            'description': 'Link module URI description',
-            'id': 'LINK_MODULE_URI_ID'
-          },
-          {
-            'uri': 'tel:6505555555',
-            'description': 'Link module tel description',
-            'id': 'LINK_MODULE_TEL_ID'
-          }
-        ]
-      },
-      'imageModulesData': [
-        {
-          'mainImage': {
-            'sourceUri': {
-              'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/logo-secuoya-group-nuevo.png'
-            },
-            'contentDescription': {
-              'defaultValue': {
-                'language': 'en-US',
-                'value': 'Image module description'
-              }
-            }
-          },
-          'id': 'IMAGE_MODULE_ID'
-        }
-      ],
-      'barcode': {
-        'type': 'QR_CODE',
-        'value': 'QR code'
       },
       'cardTitle': {
         'defaultValue': {
           'language': 'en-US',
-          'value': 'Generic card title'
+          'value': 'Secuoya Content Group'
+        }
+      },
+      'subheader': {
+        'defaultValue': {
+          'language': 'en-US',
+          'value': 'Asistente'
         }
       },
       'header': {
         'defaultValue': {
           'language': 'en-US',
-          'value': 'Generic header'
+          'value': 'Jorge Hermo'
         }
       },
-      'hexBackgroundColor': '#4285f4',
-      'logo': {
+      'barcode': {
+        'type': 'QR_CODE',
+        'value': 'BARCODE_VALUE', // Replace this with the actual barcode value
+        'alternateText': ''
+      },
+      'hexBackgroundColor': '#063d58',
+      'heroImage': {
         'sourceUri': {
-          'uri': 'https://storage.googleapis.com/wallet-lab-tools-codelab-artifacts-public/pass_google_logo.jpg'
+          'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/logo-secuoya-group-nuevo.png'
         },
         'contentDescription': {
           'defaultValue': {
             'language': 'en-US',
-            'value': 'Generic card logo'
+            'value': 'HERO_IMAGE_DESCRIPTION'
           }
         }
-      }
+      },
+      // Include any other necessary properties as per your requirements
     };
+    
 
     // Create the JWT claims
     let claims = {
@@ -773,7 +717,7 @@ class DemoGeneric {
         'state': 'ACTIVE',
         'heroImage': {
           'sourceUri': {
-            'uri': 'https://farm4.staticflickr.com/3723/11177041115_6e6a3b6f49_o.jpg'
+            'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/logo-secuoya-group-nuevo.png'
           },
           'contentDescription': {
             'defaultValue': {
@@ -807,7 +751,7 @@ class DemoGeneric {
           {
             'mainImage': {
               'sourceUri': {
-                'uri': 'http://farm4.staticflickr.com/3738/12440799783_3dc3c20606_b.jpg'
+                'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/logo-secuoya-group-nuevo.png'
               },
               'contentDescription': {
                 'defaultValue': {
@@ -826,19 +770,19 @@ class DemoGeneric {
         'cardTitle': {
           'defaultValue': {
             'language': 'en-US',
-            'value': 'Generic card title'
+            'value': 'Secuoya Content Group'
           }
         },
         'header': {
           'defaultValue': {
             'language': 'en-US',
-            'value': 'Generic header'
+            'value': 'Bienvenido a Secuoya'
           }
         },
-        'hexBackgroundColor': '#4285f4',
+        'hexBackgroundColor': '#063d58',
         'logo': {
           'sourceUri': {
-            'uri': 'https://storage.googleapis.com/wallet-lab-tools-codelab-artifacts-public/pass_google_logo.jpg'
+            'uri': 'https://secuoyacontentgroup.com/wp-content/uploads/2023/07/avatar-150x150.png'
           },
           'contentDescription': {
             'defaultValue': {
